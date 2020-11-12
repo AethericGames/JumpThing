@@ -64,7 +64,7 @@ namespace JumpThing
 
         //
         // Draw()
-        // advanced animation and draws frame to spriteBatch
+        // advance animation and draws frame to spriteBatch
         //
         public void Draw(SpriteBatch spriteBatch, GameTime gametime)
         {
@@ -257,7 +257,7 @@ namespace JumpThing
         //
         public int getEdgeTopForDraw()
         {
-            // letopft edge is the y co-ord, minus the height scaled by the y component of the origin
+            // top edge is the y co-ord, minus the height scaled by the y component of the origin
             return (int)(spritePos.Y - (getHeightForDraw() * spriteOrigin.Y));
         }
 
@@ -267,7 +267,7 @@ namespace JumpThing
         //
         public int getEdgeBottomForDraw()
         {
-            // right edge is the top edge plus the whole (scaled) height
+            // bottom edge is the top edge plus the whole (scaled) height
             return getEdgeTopForDraw() + getHeightForDraw();
         }
 
