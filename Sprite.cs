@@ -53,7 +53,7 @@ namespace JumpThing
             // initialise animation lists and add a single frame a default animation
             animations = new List<List<Rectangle>>();
             animations.Add(new List<Rectangle>());
-            animations[0].Add(new Rectangle(5, 5, 246, 315));
+            animations[0].Add(new Rectangle(0, 0, 48, 48));
         }
 
         //
@@ -109,7 +109,7 @@ namespace JumpThing
         //
         public void setAnim(int newAnim)
         {
-            if (currentAnim != newAnim) // only if the new animation is not already playing
+            if (currentAnim != newAnim && newAnim < animations.Count) // only if the new animation is not already playing
             {
                 // change the animation int, and reset the counters
                 currentAnim = newAnim;

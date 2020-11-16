@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
 
 namespace JumpThing
 {
@@ -14,6 +15,8 @@ namespace JumpThing
 		Point screenSize = new Point(800, 450);
 
 		PlayerSprite playerSprite;
+
+		List<List<PlatformSprite>> levels = new List<List<PlatformSprite>>();
 
 		public Game1()
 		{
@@ -41,7 +44,9 @@ namespace JumpThing
 			whiteBox = new Texture2D(GraphicsDevice, 1, 1);
 			whiteBox.SetData(new[] { Color.White });
 
-			playerSprite = new PlayerSprite(playerSheetTxr, whiteBox, new Vector2(50,50));
+			playerSprite = new PlayerSprite(playerSheetTxr, whiteBox, new Vector2(100,50));
+
+			BuildLevels();
 		}
 
 		protected override void Update(GameTime gameTime)
@@ -49,9 +54,8 @@ namespace JumpThing
 			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
 				Exit();
 
-			playerSprite.Update(gameTime);
-
-			if (playerSprite.spritePos.Y > screenSize.Y + 50) playerSprite.ResetPlayer(new Vector2(50, 50));
+			playerSprite.Update(gameTime, levels[0]);
+			if (playerSprite.spritePos.Y > screenSize.Y + 50) playerSprite.ResetPlayer(new Vector2(100, 50));
 
 			base.Update(gameTime);
 		}
@@ -64,9 +68,18 @@ namespace JumpThing
 
 			playerSprite.Draw(_spriteBatch, gameTime);
 
+			foreach (PlatformSprite platform in levels[0]) platform.Draw(_spriteBatch, gameTime);
+
 			_spriteBatch.End();
 
 			base.Draw(gameTime);
+		}
+
+		void BuildLevels()
+		{
+			levels.Add(new List<PlatformSprite>());
+			levels[0].Add(new PlatformSprite(platformSheetTxr, whiteBox, new Vector2(100, 300)));
+			levels[0].Add(new PlatformSprite(platformSheetTxr, whiteBox, new Vector2(250, 300)));
 		}
 	}
 }
