@@ -4,9 +4,6 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Audio;
 using System.Collections.Generic;
 
-// sounds
-
-
 namespace JumpThing
 {
 	public class Game1 : Game
