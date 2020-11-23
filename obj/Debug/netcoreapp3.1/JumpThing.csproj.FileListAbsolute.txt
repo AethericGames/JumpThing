@@ -24,3 +24,8 @@ C:\Users\nb_be\source\repos\JumpThing\JumpThing\obj\Debug\netcoreapp3.1\JumpThin
 C:\Users\nb_be\source\repos\JumpThing\JumpThing\obj\Debug\netcoreapp3.1\JumpThing.dll
 C:\Users\nb_be\source\repos\JumpThing\JumpThing\obj\Debug\netcoreapp3.1\JumpThing.pdb
 C:\Users\nb_be\source\repos\JumpThing\JumpThing\obj\Debug\netcoreapp3.1\JumpThing.genruntimeconfig.cache
+C:\Users\nb_be\source\repos\JumpThing\JumpThing\bin\Debug\netcoreapp3.1\Content\UIText.xnb
+C:\Users\nb_be\source\repos\JumpThing\JumpThing\bin\Debug\netcoreapp3.1\Content\HeartText.xnb
+C:\Users\nb_be\source\repos\JumpThing\JumpThing\bin\Debug\netcoreapp3.1\Content\bump.xnb
+C:\Users\nb_be\source\repos\JumpThing\JumpThing\bin\Debug\netcoreapp3.1\Content\fanfare.xnb
+C:\Users\nb_be\source\repos\JumpThing\JumpThing\bin\Debug\netcoreapp3.1\Content\jump.xnb

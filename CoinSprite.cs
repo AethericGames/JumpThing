@@ -7,18 +7,20 @@ using System.Text;
 
 namespace JumpThing
 {
-	class PlatformSprite : Sprite
+	class CoinSprite : Sprite
 	{
-		public PlatformSprite(Texture2D newSpriteSheet, Texture2D newCollisionTxr, Vector2 newLocation)
+		public CoinSprite(Texture2D newSpriteSheet, Texture2D newCollisionTxr, Vector2 newLocation)
 			: base(newSpriteSheet, newCollisionTxr, newLocation)
 		{
-			spriteOrigin = new Vector2(0.5f, 0f);
+			spriteOrigin = new Vector2(0.5f, 0.5f);
 			isColliding = true;
-			//drawCollision = true;
 
 			animations = new List<List<Rectangle>>();
 			animations.Add(new List<Rectangle>());
-			animations[0].Add(new Rectangle(0, 0, 96, 32));
+			animations[0].Add(new Rectangle(48, 48, 48, 48));
+			animations[0].Add(new Rectangle(96, 48, 48, 48));
+			animations[0].Add(new Rectangle(144, 48, 48, 48));
+			animations[0].Add(new Rectangle(96, 48, 48, 48));
 		}
 	}
 }
