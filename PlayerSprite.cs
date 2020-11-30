@@ -3,6 +3,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Audio;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System;
 
 namespace JumpThing
 {
@@ -99,10 +101,6 @@ namespace JumpThing
 				spriteVelocity.X = 0;
 			}
 
-			if ((falling || jumping) && spriteVelocity.Y < 500f)
-				spriteVelocity.Y += 5f * (float)gameTime.ElapsedGameTime.TotalSeconds;
-			spritePos += spriteVelocity;
-
 			bool hasCollided = false;
 
 			foreach (PlatformSprite platform in platforms)
@@ -144,12 +142,17 @@ namespace JumpThing
 					jumping = false;
 					falling = true;
 				}
-
-				if (walking) setAnim(1);
-				else if (falling) setAnim(3);
-				else if (jumping) setAnim(2);
-				else setAnim(0);
+			
 			}
+
+			if (walking && Math.Abs(spriteVelocity.Y) < 1) setAnim(1);
+			else if (falling) setAnim(3);
+			else if (jumping) setAnim(2);
+			else setAnim(0);
+
+			if ((falling || jumping) && spriteVelocity.Y < 500f)
+				spriteVelocity.Y += 5f * (float)gameTime.ElapsedGameTime.TotalSeconds;
+			spritePos += spriteVelocity;
 		}
 
 		public void ResetPlayer(Vector2 newPos)
